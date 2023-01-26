@@ -1,37 +1,77 @@
+let displayValue = "";
+let currentNumber = "";
+let oldNumber = "";
+let currentOperator = "";
+let numberValue = parseInt(displayValue);
 
-function add(firstTerm, secondTerm) {
-    sum = firstTerm + secondTerm;
+function add(first, second) {
+    sum = first + second;
     return sum;
 }
 
-function subtract(firstTerm, secondTerm) {
-    difference = firstTerm - secondTerm;
+function subtract(first, second) {
+    difference = first - second;
     return difference;
 }
 
-function multiply(firstTerm, secondTerm) {
-    product = firstTerm * secondTerm;
+function multiply(first, second) {
+    product = first * second;
     return product;
 }
 
-function divide(firstTerm, secondTerm) {
-    quotient = firstTerm / secondTerm;
+function divide(first, second) {
+    quotient = first / second;
     return quotient;
 }
 
-function operate(operator, firstNum, secondNum) {
+function operate(operator, first, second) {
+    let result;
+    if (operator === "+") {
+        result = add(first, second);
+    }
+    else if (operator === "-") {
+        result = subtract(first, second);
+    }
+    return result;
 }
 
-const numberButtons = document.querySelectorAll(".number");
+const numberButtons = document.querySelector(".numbers").childNodes;
+const operatorButtons = document.querySelector(".operators").childNodes;
+const equalsButton = document.querySelector("#equals");
 const display = document.querySelector(".display");
 
-function clickListener(btn) {
-    btn.addEventListener('click', function() {
-        display.textContent = display.textContent + btn.getAttribute("data-value");
+function updateDisplay(val) {
+    display.textContent = val;
+}
+
+function numberClickListener(numBtn) {
+    numBtn.addEventListener('click', function() {
+        buttonNumber = numBtn.getAttribute("data-value");
+        currentNumber += buttonNumber;
+        updateDisplay(currentNumber);     
+        });
+}
+
+function operatorClickListener(opBtn) {
+    opBtn.addEventListener('click', function() {
+        currentOperator = opBtn.getAttribute("data-value");
+        oldNumber = currentNumber;
+        currentNumber = "";
     });
 }
 
+function equalsClickListener(eqlsBtn) {
+    eqlsBtn.addEventListener('click', function() {
+        result = operate(currentOperator, oldNumber, currentNumber);
+        displayValue = result;
+        console.log(displayValue);
+        console.log(oldNumber);
+        console.log(currentNumber);
+        updateDisplay(displayValue);
+    });
+}
 
-
-numberButtons.forEach(clickListener);
+numberButtons.forEach(numberClickListener);
+operatorButtons.forEach(operatorClickListener);
+equalsClickListener(equalsButton);
 
