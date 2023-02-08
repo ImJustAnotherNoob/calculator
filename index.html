@@ -8,25 +8,28 @@
     <script src="calculator.js" defer></script>
 </head>
 <body>
-    <div class="display">69420</div>
+    <div class=""previous"></div>
+    <div class="display">0</div>
     <div class="numbers">
-        <button id="one" data-value="1">1</button>
-        <button id="two" data-value="2">2</button>
-        <button id="three" data-value="3">3</button>
-        <button id="four" data-value="4">4</button>
-        <button id="five" data-value="5">5</button>
-        <button id="six" data-value="6">6</button>
-        <button id="seven" data-value="7">7</button>
-        <button id="eight" data-value="8">8</button>
-        <button id="nine" data-value="9">9</button>
+        <button data-key="." id="decimal" data-value=".">.</button>
+        <button data-key="0" id="zero" data-value="0">0</button>
+        <button data-key="1" id="one" data-value="1">1</button>
+        <button data-key="2" id="two" data-value="2">2</button>
+        <button data-key="3" id="three" data-value="3">3</button>
+        <button data-key="4" id="four" data-value="4">4</button>
+        <button data-key="5" id="five" data-value="5">5</button>
+        <button data-key="6" id="six" data-value="6">6</button>
+        <button data-key="7" id="seven" data-value="7">7</button>
+        <button data-key="8" id="eight" data-value="8">8</button>
+        <button data-key="9" id="nine" data-value="9">9</button>
     </div>
     <div class="operators">
-        <button id="add" data-value="+">+</button>
-        <button id="subtract" data-value="-">-</button>
-        <button id="multiply" data-value="*">*</button>
-        <button id="divide" data-value="/">/</button>
+        <button data-key="+" id="add" data-value="+">+</button>
+        <button data-key="-" id="subtract" data-value="-">-</button>
+        <button data-key="*" id="multiply" data-value="*">*</button>
+        <button data-key="/" id="divide" data-value="/">/</button>
     </div>
-    <button id="equals">=</button>
+    <button data-key="Enter" data-keyalt="=" id="equals" data-value="=">=</button>
     <button id="clear">AC</button>
 </body>
 </html>
